@@ -126,6 +126,8 @@ Cataclysm: Bard legacy - Будет безумным куском мяса. Ве
 
 Выживший захотел сделать себе сани на кошачьей тяге? IFAW Вас явно уже не достанет.
 
+Добавить [мод](https://github.com/Standing-Storm/innawoods-feral-villages) расширение для инвуда на деревни фералов
+
 ## Contribute
 
 Cataclysm: Bard legacy является результатом многолетней работы тысячи людей! И вся эта работа проделанна под лицензией Creative Commons Attribution ShareAlike 3.0. Ссылка на лицензию https://creativecommons.org/licenses/by-sa/3.0/
