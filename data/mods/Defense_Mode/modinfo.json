@@ -5,6 +5,6 @@
     "name": "Defense Mode",
     "description": "Enables the Defense game mode.",
     "category": "total_conversion",
-    "dependencies": [ "dda" ]
+    "dependencies": [ "bl" ]
   }
 ]
