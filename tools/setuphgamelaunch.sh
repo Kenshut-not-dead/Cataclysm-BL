@@ -7,18 +7,18 @@ if [ -z "$1" ]
     exit 1
 fi
 
-if (pwd | grep "Cataclysm-DDA/tools")
+if (pwd | grep "Cataclysm-BL/tools")
 then
 cd ..
 else
-if (ls Cataclysm-DDA)
+if (ls Cataclysm-BL)
 then
-echo "Cataclysm-DDA already exists"
+echo "Cataclysm-BL already exists"
 else
-echo "Cloning Cataclysm-DDA"
-git clone https://github.com/CleverRaven/Cataclysm-DDA
+echo "Cloning Cataclysm-BL"
+git clone https://github.com/Kenshut-not-dead/Cataclysm-BL
 fi
-cd Cataclysm-DDA
+cd Cataclysm-BL
 fi
 
 make
@@ -54,15 +54,15 @@ echo "Copying readme to $1"
 cp ./README.md $1
 
 # Copying game files
-cd ../Cataclysm-DDA
-mkdir -p $1/cdda
-cp ./cataclysm $1/cdda/
-mkdir -p $1/share/cataclysm-dda
+cd ../Cataclysm-BL
+mkdir -p $1/cbl
+cp ./cataclysm $1/cbl/
+mkdir -p $1/share/cataclysm-bl
 mkdir -p $1/share/save
 mkdir -p $1/share/memorial
-cp -r ./data/. $1/share/cataclysm-dda
-cp -r ./gfx $1/share/cataclysm-dda
-cp -r ./lang $1/share/cataclysm-dda
+cp -r ./data/. $1/share/cataclysm-bl
+cp -r ./gfx $1/share/cataclysm-bl
+cp -r ./lang $1/share/cataclysm-bl
 
 # Copying games.json
 cd $1
@@ -70,21 +70,21 @@ ROOTPATH=$(echo "$1/" | sed -e 's/[\/&]/\\&/g')
 echo "Copying games.json"
 if (ls ./config/games.json)
 then
-cp ./config/examples/Cataclysm-DDA/games.json ./config/games.json.new
+cp ./config/examples/Cataclysm-BL/games.json ./config/games.json.new
 sed -i "s/!rootpath/$ROOTPATH/g" ./config/games.json.new
 echo "New config has been copied to $1/config/games.json.new"
 else
-cp ./config/examples/Cataclysm-DDA/games.json ./config/
+cp ./config/examples/Cataclysm-BL/games.json ./config/
 sed -i "s/!rootpath/$ROOTPATH/g" ./config/games.json
 fi
 
 # Making admin userdir
-mkdir -p $1/userdata/cdda/admin/
-mkdir -p $1/userdata/cdda/admin/ttyrec
+mkdir -p $1/userdata/cbl/admin/
+mkdir -p $1/userdata/cbl/admin/ttyrec
 
 # Creating the directories for ttrecs in progress
-mkdir -p $1/cdda-inprogress/
-mkdir -p $1/cdda-shared-inprogress/
+mkdir -p $1/cbl-inprogress/
+mkdir -p $1/cbl-shared-inprogress/
 
 echo "FINISHED! Hgamelaunch was installed into $1"
 echo "The admin login is:"
