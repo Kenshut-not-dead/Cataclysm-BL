@@ -170,5 +170,5 @@ Cataclysm: Bard legacy является результатом многолет�
 ## Community
 
 Discord:
-[https://discord.gg/jFEc7Yp](https://discord.com/invite/KgmqPRrYF3)
+[discord.com/invite/KgmqPRrYF3](https://discord.com/invite/KgmqPRrYF3)
 
