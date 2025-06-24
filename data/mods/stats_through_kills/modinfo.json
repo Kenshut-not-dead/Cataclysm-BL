@@ -7,7 +7,7 @@
     "maintainers": [ "KorGgenT" ],
     "description": "You gain XP from kills that you can spend on increasing your stats.",
     "category": "rebalance",
-    "dependencies": [ "dda" ]
+    "dependencies": [ "bl" ]
   },
   {
     "type": "EXTERNAL_OPTION",
