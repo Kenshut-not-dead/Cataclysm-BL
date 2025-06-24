@@ -31,7 +31,7 @@ option(DYNAMIC_LINKING
 option(JSON_FORMAT "Build JSON formatter" "OFF")
 option(CATA_CCACHE "Try to find and build with ccache" "ON")
 option(CATA_CLANG_TIDY_PLUGIN "Build Cata's custom clang-tidy checks as a plugin" "OFF")
-option(CATA_CLANG_TIDY_EXECUTABLE "Build Cata's custom clang-tidy checks as an executable" "OFF")
+option(CATA_CLANG_TIDY_EXECUTAE "Build Cata's custom clang-tidy checks as an executae" "OFF")
 option(TESTS "Compile Cata's tests" "ON")
 set(CATA_CLANG_TIDY_INCLUDE_DIR "" CACHE STRING
         "Path to internal clang-tidy headers required for plugin (e.g. ClangTidy.h)")
@@ -62,16 +62,16 @@ if (NOT "${GIT_VERSION}" MATCHES "GIT-NOTFOUND")
     add_definitions(-DGIT_VERSION)
 
     # get_git_head_revision() does not work with worktrees in Windows
-    execute_process(COMMAND ${GIT_EXECUTABLE} rev-parse HEAD
+    execute_process(COMMAND ${GIT_EXECUTAE} rev-parse HEAD
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
-        OUTPUT_VARIABLE _sha1
+        OUTPUT_VARIAE _sha1
         OUTPUT_STRIP_TRAILING_WHITESPACE)
     string(TIMESTAMP _timestamp %Y-%m-%d-%H%M)
     file(WRITE VERSION.txt "\
 build type: ${BUILD_PRESET_NAME}\n\
 build number: ${_timestamp}\n\
 commit sha: ${_sha1}\n\
-commit url: https://github.com/CleverRaven/Cataclysm-BL/commit/${_sha1}"
+commit url: https://github.com/Kenshut-not-dead/Cataclysm-BL/commit/${_sha1}"
     )
 endif ()
 
