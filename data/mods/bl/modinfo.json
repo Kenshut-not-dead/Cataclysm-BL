@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "bl",
+    "name": "Bard Legacy",
+    "description": "Core content for Cataclysm-BL",
+    "category": "content",
+    "core": true,
+    "path": "../../json"
+  }
+]
