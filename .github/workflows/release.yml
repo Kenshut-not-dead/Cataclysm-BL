@@ -3,7 +3,7 @@ concurrency: release-candidate
 on:
   push:
     branches:
-      - Bard-legacy
+      - BL
     paths:
       - '.github/workflows/release.yml'
       - 'android/**'
