@@ -1,16 +1,16 @@
 #!/bin/sh
 
-if (pwd | grep "Cataclysm-DDA/tools")
+if (pwd | grep "Cataclysm-BL/tools")
 then
 cd ..
 else
 if (ls Cataclysm-DDA)
 then
-echo "Cataclysm-DDA already exists"
+echo "Cataclysm-BL already exists"
 else
-git clone https://github.com/CleverRaven/Cataclysm-DDA
+git clone https://github.com/Kenshut-not-dead/Cataclysm-BL
 fi
-cd Cataclysm-DDA
+cd Cataclysm-BL
 fi
 
 make
@@ -25,6 +25,6 @@ git clone https://github.com/C0DEHERO/dgamelaunch
 fi
 cd dgamelaunch
 
-./autogen.sh --enable-sqlite --enable-shmem --with-config-file=/opt/dgamelaunch/cdda/etc/dgamelaunch.conf
+./autogen.sh --enable-sqlite --enable-shmem --with-config-file=/opt/dgamelaunch/cbl/etc/dgamelaunch.conf
 make
 sudo ./dgl-create-chroot
