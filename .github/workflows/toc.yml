@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-    - master
+    - BL
     paths:
     - 'doc/JSON_INFO.md'
 name: TOC Generator
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   generateTOC:
-    if: github.repository == 'CleverRaven/Cataclysm-DDA'
+    if: github.repository == 'Kenshut-not-dead/Cataclysm-BL'
     name: Update the table of contents
     runs-on: ubuntu-latest
     steps:
