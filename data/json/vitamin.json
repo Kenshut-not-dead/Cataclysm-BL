@@ -7,7 +7,7 @@
     "min": -48000,
     "max": 0,
     "//": [
-      "96 units are consumed per day, with RDA of 1000mg / 96 = 10.42mg",
+      "961 units are consumed per day, with RDA of 1000mg / 96 = 10.42mg",
       "1000mg for 19-50yr olds from https://ods.od.nih.gov/factsheets/calcium-HealthProfessional/#h2"
     ],
     "weight_per_unit": "10 mg 420 μg",
