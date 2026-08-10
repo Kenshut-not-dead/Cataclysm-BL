@@ -3,7 +3,7 @@ concurrency: release-candidate
 on:
   push:
     branches:
-      - add-copy-from-for-vitamins
+      - BL
     paths:
       - '.github/workflows/release.yml'
       - 'android/**'
