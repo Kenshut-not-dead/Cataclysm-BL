@@ -3,39 +3,39 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <CDDA_ROOT>$(MSBuildThisFileDirectory)..\</CDDA_ROOT>
+    <CBL_ROOT>$(MSBuildThisFileDirectory)..\</CBL_ROOT>
     <TargetName>$(ProjectName)-$(Configuration)-$(Platform)</TargetName>
-    <IntDir>$(CDDA_ROOT)objwin\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-    <OutDir>$(CDDA_ROOT)objwin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>$(CBL_ROOT)objwin\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <OutDir>$(CBL_ROOT)objwin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
   </PropertyGroup>
   <PropertyGroup>
-    <_CDDA_BACKTRACE>false</_CDDA_BACKTRACE>
-    <_CDDA_BACKTRACE Condition="'$(BACKTRACE)'!=''">true</_CDDA_BACKTRACE>
-    <_CDDA_RELEASE_BUILD>false</_CDDA_RELEASE_BUILD>
-    <_CDDA_RELEASE_BUILD Condition="'$(CDDA_RELEASE_BUILD)'!=''">true</_CDDA_RELEASE_BUILD>
-    <_CDDA_LLVM_BIN_PATH>$(VCInstallDir)Tools\Llvm\bin\</_CDDA_LLVM_BIN_PATH>
-    <_CDDA_LLVM_BIN_PATH Condition="'$(PreferredToolArchitecture)'=='x64'">$(VCInstallDir)Tools\Llvm\x64\bin\</_CDDA_LLVM_BIN_PATH>
-    <_CDDA_LLVM_BIN_PATH Condition="'$(LLVMInstallDir)'!=''">$(LLVMInstallDir)\bin\</_CDDA_LLVM_BIN_PATH>
-    <CDDA_LLVM_LIB_PATH Condition="'$(CDDA_LLVM_LIB_PATH)'==''">$(_CDDA_LLVM_BIN_PATH)</CDDA_LLVM_LIB_PATH>
-    <CDDA_LLD_LINK_PATH Condition="'$(CDDA_LLD_LINK_PATH)'==''">$(_CDDA_LLVM_BIN_PATH)</CDDA_LLD_LINK_PATH>
-    <_CDDA_ENABLE_THIN_ARCHIVES>false</_CDDA_ENABLE_THIN_ARCHIVES>
-    <_CDDA_ENABLE_THIN_ARCHIVES Condition="'$(CDDA_ENABLE_THIN_ARCHIVES)'!=''">true</_CDDA_ENABLE_THIN_ARCHIVES>
-    <_CDDA_USE_LLD_LINK>false</_CDDA_USE_LLD_LINK>
-    <_CDDA_USE_LLD_LINK Condition="'$(CDDA_USE_LLD_LINK)'!='' Or $(_CDDA_ENABLE_THIN_ARCHIVES)">true</_CDDA_USE_LLD_LINK>
+    <_CBL_BACKTRACE>false</_CBL_BACKTRACE>
+    <_CBL_BACKTRACE Condition="'$(BACKTRACE)'!=''">true</_CBL_BACKTRACE>
+    <_CBL_RELEASE_BUILD>false</_CBL_RELEASE_BUILD>
+    <_CBL_RELEASE_BUILD Condition="'$(CBL_RELEASE_BUILD)'!=''">true</_CBL_RELEASE_BUILD>
+    <_CBL_LLVM_BIN_PATH>$(VCInstallDir)Tools\Llvm\bin\</_CBL_LLVM_BIN_PATH>
+    <_CBL_LLVM_BIN_PATH Condition="'$(PreferredToolArchitecture)'=='x64'">$(VCInstallDir)Tools\Llvm\x64\bin\</_CBL_LLVM_BIN_PATH>
+    <_CBL_LLVM_BIN_PATH Condition="'$(LLVMInstallDir)'!=''">$(LLVMInstallDir)\bin\</_CBL_LLVM_BIN_PATH>
+    <CBL_LLVM_LIB_PATH Condition="'$(CBL_LLVM_LIB_PATH)'==''">$(_CBL_LLVM_BIN_PATH)</CBL_LLVM_LIB_PATH>
+    <CBL_LLD_LINK_PATH Condition="'$(CBL_LLD_LINK_PATH)'==''">$(_CBL_LLVM_BIN_PATH)</CBL_LLD_LINK_PATH>
+    <_CBL_ENABLE_THIN_ARCHIVES>false</_CBL_ENABLE_THIN_ARCHIVES>
+    <_CBL_ENABLE_THIN_ARCHIVES Condition="'$(CBL_ENABLE_THIN_ARCHIVES)'!=''">true</_CBL_ENABLE_THIN_ARCHIVES>
+    <_CBL_USE_LLD_LINK>false</_CBL_USE_LLD_LINK>
+    <_CBL_USE_LLD_LINK Condition="'$(CBL_USE_LLD_LINK)'!='' Or $(_CBL_ENABLE_THIN_ARCHIVES)">true</_CBL_USE_LLD_LINK>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgAdditionalInstallOptions>--clean-after-build</VcpkgAdditionalInstallOptions>
     <CustomBuildAfterTargets>VcpkgInstallManifestDependencies</CustomBuildAfterTargets>
   </PropertyGroup>
-  <PropertyGroup Condition="$(_CDDA_USE_CCACHE)">
-    <ClToolPath>$(CDDA_CCACHE_PATH)</ClToolPath>
+  <PropertyGroup Condition="$(_CBL_USE_CCACHE)">
+    <ClToolPath>$(CBL_CCACHE_PATH)</ClToolPath>
   </PropertyGroup>
-  <PropertyGroup Condition="$(_CDDA_ENABLE_THIN_ARCHIVES)">
-    <LibToolPath>$(CDDA_LLVM_LIB_PATH)</LibToolPath>
+  <PropertyGroup Condition="$(_CBL_ENABLE_THIN_ARCHIVES)">
+    <LibToolPath>$(CBL_LLVM_LIB_PATH)</LibToolPath>
     <LibToolExe>llvm-lib.exe</LibToolExe>
   </PropertyGroup>
-  <PropertyGroup Condition="$(_CDDA_USE_LLD_LINK)">
-    <LinkToolPath>$(CDDA_LLD_LINK_PATH)</LinkToolPath>
+  <PropertyGroup Condition="$(_CBL_USE_LLD_LINK)">
+    <LinkToolPath>$(CBL_LLD_LINK_PATH)</LinkToolPath>
     <LinkToolExe>lld-link.exe</LinkToolExe>
     <!-- vcpkg passes dependecy libs via a glob pattern which lld-link doesn't accept. We have to manually enumerate the deps now. -->
     <VcpkgAutoLink>false</VcpkgAutoLink>
@@ -77,14 +77,14 @@
     <ClCompile Condition="$(Configuration.Contains(NoTiles))">
       <PreprocessorDefinitions>USE_PDCURSES;PDC_NCMOUSE;PDC_WIDE;IMTUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Condition="$(_CDDA_BACKTRACE)">
+    <ClCompile Condition="$(_CBL_BACKTRACE)">
       <PreprocessorDefinitions>BACKTRACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Condition="$(_CDDA_USE_CCACHE)">
+    <ClCompile Condition="$(_CBL_USE_CCACHE)">
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <ObjectFileName>$(IntDir)%(FileName).obj</ObjectFileName>
     </ClCompile>
-    <Lib Condition="$(_CDDA_ENABLE_THIN_ARCHIVES)">
+    <Lib Condition="$(_CBL_ENABLE_THIN_ARCHIVES)">
       <AdditionalOptions>/llvmlibthin $(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <Link>
@@ -99,12 +99,12 @@
     <Link Condition="$(PlatformToolsetVersion) == 143 And $(VCToolsVersion) &lt;= 14.37">
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
-    <Link Condition="$(_CDDA_RELEASE_BUILD)">
+    <Link Condition="$(_CBL_RELEASE_BUILD)">
       <LinkIncremental>false</LinkIncremental>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <StripPrivateSymbols>$(OutDir)$(TargetName).stripped.pdb</StripPrivateSymbols>
     </Link>
-    <Link Condition="$(_CDDA_USE_LLD_LINK)">
+    <Link Condition="$(_CBL_USE_LLD_LINK)">
       <AdditionalLibraryDirectories Condition="$(Configuration.StartsWith(Debug))">
         $(ProjectDir)vcpkg_installed\$(VcpkgTripet)\$(VcpkgTriplet)\debug\lib;%(AdditionalLibraryDirectories)
       </AdditionalLibraryDirectories>
