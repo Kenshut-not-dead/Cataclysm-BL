@@ -19,7 +19,7 @@ jobs:
         run: |
           timestamp=$(date -u "+%Y-%m-%d-%H%M")
           echo "timestamp=$timestamp" >> $GITHUB_OUTPUT
-          echo "tag_name=cdda-experimental-aab-bundle-$timestamp" >> $GITHUB_OUTPUT
+          echo "tag_name=cbl-experimental-aab-bundle-$timestamp" >> $GITHUB_OUTPUT
           echo "release_name=Cataclysm-DDA experimental Android bundle $timestamp" >> $GITHUB_OUTPUT
 
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
@@ -46,14 +46,14 @@ jobs:
           export UPSTREAM_BUILD_NUMBER="$((11581 + ${{ github.run_number }}))"
           chmod +x gradlew
           ./gradlew -Pj=$((`nproc`+0)) bundleExperimentalRelease
-          mv ./app/build/outputs/bundle/experimentalRelease/*.aab ../cdda-android-bundle-${STEPS_VARS_OUTPUTS_TIMESTAMP}-${{ github.sha }}.aab
+          mv ./app/build/outputs/bundle/experimentalRelease/*.aab ../cbl-android-bundle-${STEPS_VARS_OUTPUTS_TIMESTAMP}-${{ github.sha }}.aab
         env:
           STEPS_VARS_OUTPUTS_TIMESTAMP: ${{ steps.vars.outputs.timestamp }}
 
       - name: Create GitHub release
         run: |
           gh release create ${STEPS_VARS_OUTPUTS_TAG_NAME} \
-            cdda-android-bundle-${STEPS_VARS_OUTPUTS_TIMESTAMP}-${{ github.sha }}.aab \
+            cbl-android-bundle-${STEPS_VARS_OUTPUTS_TIMESTAMP}-${{ github.sha }}.aab \
             --prerelease \
             --title "${STEPS_VARS_OUTPUTS_RELEASE_NAME}" \
             --target "${{ github.sha }}"
