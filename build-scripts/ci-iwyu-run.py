@@ -173,8 +173,8 @@ def run_iwyu_on(iwyu_tool_path: str, files: list[Path]) -> int:
     argslist.extend(str(f) for f in files)
     argslist.extend(["-p", "build", "--jobs", "4"])
     argslist.extend(["--"])
-    cdda_root = Path(__file__).parent.parent
-    mapping_path = cdda_root / "tools/iwyu/cata.imp"
+    cbl_root = Path(__file__).parent.parent
+    mapping_path = cbl_root / "tools/iwyu/cata.imp"
     argslist.extend([
         "-Xiwyu", "--mapping_file=%s" % mapping_path,
         "-Xiwyu", "--cxx17ns",
