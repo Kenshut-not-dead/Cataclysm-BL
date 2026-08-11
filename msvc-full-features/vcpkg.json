@@ -1,5 +1,5 @@
 {
-  "name": "cdda-vcpkg-dependencies",
+  "name": "cbl-vcpkg-dependencies",
   "version-string": "0.J",
   "port-version": 1,
   "dependencies": [
