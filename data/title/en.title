@@ -7,15 +7,9 @@
 <color_light_cyan>   \     \____ / __ \_ |  |   / __ \_\  \___ |  |__ \___  | \___ \ |  Y Y  \    </color>
 <color_light_cyan>    \______  /(____  / |__|  (____  / \___  >|____/ / ____|/____  >|__|_|  /    </color>
 <color_light_cyan>           \/      \/             \/      \/        \/          \/       \/     </color>
-<color_light_blue>    ________                   .__      ________                                </color>
-<color_light_blue>    \______ \  _____   _______ |  | __  \______ \  _____    ___.__   ______     </color>
-<color_light_blue>     |    |  \ \__  \  \_  __ \|  |/ /   |    |  \ \__  \  <   |  | /  ___/     </color>
-<color_light_blue>     |    `   \ / __ \_ |  | \/|    <    |    `   \ / __ \_ \___  | \___ \      </color>
-<color_light_blue>    /_______  /(____  / |__|   |__|_ \  /_______  /(____  / / ____|/____  >     </color>
-<color_light_blue>            \/      \/              \/          \/      \/  \/          \/      </color>
-<color_light_blue>                     _____   .__                         .___                   </color>
-<color_light_blue>                    /  _  \  |  |__    ____  _____     __| _/                   </color>
-<color_light_blue>                   /  /_\  \ |  |  \ _/ __ \ \__  \   / __ |                    </color>
-<color_light_blue>                  /    |    \|   Y  \\  ___/  / __ \_/ /_/ |                    </color>
-<color_light_blue>                  \____|__  /|___|  / \___  >(____  /\____ |                    </color>
-<color_light_blue>                          \/      \/      \/      \/      \/                    </color>
+<color_light_blue>        ____    _    ____  ____     _     _____ ____    _    ______   __        </color>
+<color_light_blue>       | __ )  / \  |  _ \|  _ \   | |   | ____/ ___|  / \  / ___\ \ / /        </color>
+<color_light_blue>       |  _ \ / _ \ | |_) | | | |  | |   |  _|| |  _  / _ \| |    \ V /         </color>
+<color_light_blue>       | |_) / ___ \|  _ <| |_| |  | |___| |__| |_| |/ ___ \ |___  | |          </color>
+<color_light_blue>       |____/_/   \_\_| \_\____/   |_____|_____\____/_/   \_\____| |_|          </color>
+
