@@ -49,7 +49,7 @@ int vitamin::severity( int qty ) const
     return 0;
 }
 
-void vitamin::load_vitamin( const JsonObject &jsobj )
+void vitamin::load_vitamin( const JsonObject &jo )
 {
     vitamin vit;
 
