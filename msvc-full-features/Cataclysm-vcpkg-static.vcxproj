@@ -171,7 +171,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup>
-    <CustomBuildStep Condition="'$(CDDA_POST_BUILD_JSON_LINT)' != ''">
+    <CustomBuildStep Condition="'$(CBL_POST_BUILD_JSON_LINT)' != ''">
       <Command>C:\windows\system32\windowspowershell\v1.0\powershell.exe -NonInteractive -ExecutionPolicy Unrestricted $(SolutionDir)\style-json.ps1 -FromMSBuild</Command>
       <Message>Linting JSON</Message>
       <Outputs>non-existent-file-to-always-trigger-custom-step.txt</Outputs>
