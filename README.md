@@ -3,7 +3,7 @@
 Cataclysm: Bard legacy - Это Форк CDDA, сосредаточенный на треше. Убийство невиновных, а после чего скармливание их остатков оставшимся близким? Почему бы и нет?
 
 <p align="center">
-    <img src="./data/screen/liar.jpg">
+    <img src="./data/screenshots/liar.jpg">
 </p>
 
 ## Скачивание
