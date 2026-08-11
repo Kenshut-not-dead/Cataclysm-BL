@@ -74,7 +74,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <TargetExt>.exe</TargetExt>
-    <OutDir>$(CDDA_ROOT)\</OutDir>
+    <OutDir>$(CBL_ROOT)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <LinkIncremental>true</LinkIncremental>
