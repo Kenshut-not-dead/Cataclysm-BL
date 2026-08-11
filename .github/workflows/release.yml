@@ -40,7 +40,7 @@ jobs:
         id: generate_env_vars
         run: |
           echo "tag_name=cbl-experimental-${STEPS_GET_TIMESTAMP_OUTPUTS_TIME}" >> $GITHUB_OUTPUT
-          echo "release_name=Cataclysm-DDA experimental build ${STEPS_GET_TIMESTAMP_OUTPUTS_TIME}" >> $GITHUB_OUTPUT
+          echo "release_name=Cataclysm-bl experimental build ${STEPS_GET_TIMESTAMP_OUTPUTS_TIME}" >> $GITHUB_OUTPUT
         env:
           STEPS_GET_TIMESTAMP_OUTPUTS_TIME: ${{ steps.get-timestamp.outputs.time }}
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
