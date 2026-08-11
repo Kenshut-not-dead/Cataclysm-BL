@@ -75,7 +75,7 @@
   <PropertyGroup>
     <TargetName>$(ProjectName)-$(Configuration)-$(Platform)</TargetName>
     <TargetExt>.lib</TargetExt>
-    <OutDir>$(CDDA_ROOT)tools\format\</OutDir>
+    <OutDir>$(CBL_ROOT)tools\format\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <LinkIncremental>true</LinkIncremental>
