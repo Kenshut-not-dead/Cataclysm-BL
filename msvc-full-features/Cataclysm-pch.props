@@ -8,7 +8,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>$(MSBuildThisFileDirectory)..\pch\main-pch.hpp</PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Condition="$(_CDDA_USE_CCACHE)">
+    <ClCompile Condition="$(_CBL_USE_CCACHE)">
       <ForcedIncludeFiles />
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -18,7 +18,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)stdafx.cpp">
-      <PrecompiledHeader Condition="!$(_CDDA_USE_CCACHE)">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="!$(_CBL_USE_CCACHE)">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
 </Project>
