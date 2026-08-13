@@ -1,0 +1,12 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "stk_eoc",
+    "name": "Stats Through Kills",
+    "authors": [ "KamikazieBoater" ],
+    "maintainers": [ "KamikazieBoater" ],
+    "description": "Modernization of the Stats Through Kills mod, taking design inspiration from Bombastic Perks.",
+    "category": "rebalance",
+    "dependencies": [ "dda" ]
+  }
+]

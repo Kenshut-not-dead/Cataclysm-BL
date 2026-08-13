@@ -1,0 +1,13 @@
+[
+  {
+    "type": "mutation",
+    "id": "stk_container",
+    "name": { "str": "StK Leveling" },
+    "points": 0,
+    "purifiable": false,
+    "valid": false,
+    "description": "Container trait for StK leveling mechanics.  Activate to access the main leveling menu.",
+    "active": true,
+    "activated_eocs": [ "EOC_stk_open_menu" ]
+  }
+]

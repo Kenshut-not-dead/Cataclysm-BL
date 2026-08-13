@@ -1,0 +1,176 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_STK_MENU_MAIN",
+    "dynamic_line": "Level: <u_val:stk_level> (Max: <u_val:stk_max_level>)\nPoints: <u_val:stk_points>\nEXP: <u_val:stk_exp_current>\nEXP for next level: <u_val:stk_exp_to_level>",
+    "responses": [
+      {
+        "condition": { "math": [ "u_stk_points > 0" ] },
+        "text": "Gain Strength",
+        "failure_explanation": "Requirements: at least 1 point",
+        "failure_topic": "TALK_STK_MENU_FAIL",
+        "effect": [ { "math": [ "u_val('strength_base')++" ] }, { "math": [ "u_stk_points--" ] } ],
+        "topic": "TALK_STK_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_stk_points > 0" ] },
+        "text": "Gain Dexterity",
+        "failure_explanation": "Requirements: at least 1 point",
+        "failure_topic": "TALK_STK_MENU_FAIL",
+        "effect": [ { "math": [ "u_val('dexterity_base')++" ] }, { "math": [ "u_stk_points--" ] } ],
+        "topic": "TALK_STK_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_stk_points > 0" ] },
+        "text": "Gain Intelligence",
+        "failure_explanation": "Requirements: at least 1 point",
+        "failure_topic": "TALK_STK_MENU_FAIL",
+        "effect": [ { "math": [ "u_val('intelligence_base')++" ] }, { "math": [ "u_stk_points--" ] } ],
+        "topic": "TALK_STK_MENU_MAIN"
+      },
+      {
+        "condition": { "math": [ "u_stk_points > 0" ] },
+        "text": "Gain Perception",
+        "failure_explanation": "Requirements: at least 1 point",
+        "failure_topic": "TALK_STK_MENU_FAIL",
+        "effect": [ { "math": [ "u_val('perception_base')++" ] }, { "math": [ "u_stk_points--" ] } ],
+        "topic": "TALK_STK_MENU_MAIN"
+      },
+      { "text": "Settings", "topic": "TALK_STK_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_STK_MENU_CONFIG",
+    "dynamic_line": "Choose settings to modify",
+    "responses": [
+      { "text": "Notifications", "topic": "TALK_STK_MENU_LEVEL_NOTIFICATIONS" },
+      { "text": "Max Level", "topic": "TALK_STK_MENU_MAX_LEVEL" },
+      { "text": "Exp Formula", "topic": "TALK_STK_MENU_EXP_FORMULA" },
+      { "text": "Debug", "topic": "TALK_STK_MENU_DEBUG" },
+      { "text": "Back", "topic": "TALK_STK_MENU_MAIN" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_STK_MENU_LEVEL_NOTIFICATIONS",
+    "dynamic_line": "Should the menu pop up on level up?",
+    "responses": [
+      {
+        "text": "Yes",
+        "effect": { "math": [ "u_stk_silent = 0" ] },
+        "condition": { "math": [ "u_stk_silent != 0" ] },
+        "failure_explanation": "Pop-up already enabled",
+        "failure_topic": "TALK_STK_MENU_CONFIG",
+        "topic": "TALK_STK_MENU_CONFIG"
+      },
+      {
+        "text": "No",
+        "effect": { "math": [ "u_stk_silent = 1" ] },
+        "condition": { "math": [ "u_stk_silent != 1" ] },
+        "failure_explanation": "Pop-up already disabled",
+        "failure_topic": "TALK_STK_MENU_CONFIG",
+        "topic": "TALK_STK_MENU_CONFIG"
+      },
+      { "text": "Back", "topic": "TALK_STK_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_STK_MENU_MAX_LEVEL",
+    "dynamic_line": "Set max level for RPG leveling (-1 = disabled).  (Default: 20; Current: <u_val:stk_max_level>)",
+    "responses": [
+      {
+        "text": "Disable",
+        "effect": { "math": [ "u_stk_max_level = -1" ] },
+        "condition": { "math": [ "u_stk_max_level >= 0" ] },
+        "failure_explanation": "Max level already disabled",
+        "failure_topic": "TALK_STK_MENU_MAX_LEVEL",
+        "topic": "TALK_STK_MENU_MAX_LEVEL"
+      },
+      {
+        "text": "Enter custom value",
+        "effect": { "math": [ "u_stk_max_level = max(num_input('Enter max level', 20), 0)" ] },
+        "topic": "TALK_STK_MENU_MAX_LEVEL"
+      },
+      { "text": "Back", "topic": "TALK_STK_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_STK_MENU_EXP_FORMULA",
+    "dynamic_line": "Edit exp formula for leveling.  Format: (multiplier) * (level + 1) + (constant)\nDefault Multiplier: 1000\nDefault Constant: 0\nCurrent Formula: (<u_val:stk_exp_mult>) * (<u_val:stk_level> + 1) + (<u_val:stk_exp_const>)\nEXP: <u_val:stk_exp_current>.\nEXP for next level: <u_val:stk_exp_to_level>\nNote: any changes to the formula will not affect levels already earned, and future levels are only determined on exp gain.",
+    "responses": [
+      {
+        "text": "Edit Multiplier Value",
+        "effect": [
+          { "math": [ "u_stk_exp_mult = max(num_input('Enter multiplier for exp to next level', 1000), 0)" ] },
+          { "run_eocs": "EOC_stk_exp_to_level" }
+        ],
+        "condition": { "math": [ "u_stk_exp_mult >= 0" ] },
+        "failure_explanation": "Cannot set a multiplier below 0",
+        "failure_topic": "TALK_STK_MENU_EXP_FORMULA",
+        "topic": "TALK_STK_MENU_EXP_FORMULA"
+      },
+      {
+        "text": "Edit Constant Value",
+        "effect": [
+          { "math": [ "u_stk_exp_const = max(num_input('Enter constant for exp to next level', 1000), 0)" ] },
+          { "run_eocs": "EOC_stk_exp_to_level" }
+        ],
+        "condition": { "math": [ "u_stk_exp_const >= 0" ] },
+        "failure_explanation": "Cannot set a constant below 0",
+        "failure_topic": "TALK_STK_MENU_EXP_FORMULA",
+        "topic": "TALK_STK_MENU_EXP_FORMULA"
+      },
+      { "text": "Back", "topic": "TALK_STK_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_STK_MENU_DEBUG",
+    "dynamic_line": {
+      "math": [ "u_stk_debug == 1" ],
+      "yes": "Level: <u_val:stk_level> (Max: <u_val:stk_max_level>)\nPoints: <u_val:stk_points>\nEXP: <u_val:stk_exp_current>\nDebug is ENABLED",
+      "no": "Debug is DISABLED"
+    },
+    "responses": [
+      {
+        "text": "Toggle Debug",
+        "effect": [ { "math": [ "u_stk_debug = (u_stk_debug + 1) % 2" ] } ],
+        "topic": "TALK_STK_MENU_DEBUG"
+      },
+      {
+        "text": "Set Level",
+        "effect": [ { "math": [ "u_stk_level = num_input('Set Level:', 0)" ] } ],
+        "condition": { "math": [ "u_stk_debug == 1" ] },
+        "topic": "TALK_STK_MENU_DEBUG"
+      },
+      {
+        "text": "Set Points",
+        "effect": [ { "math": [ "u_stk_points = num_input('Set Points:', 0)" ] } ],
+        "condition": { "math": [ "u_stk_debug == 1" ] },
+        "topic": "TALK_STK_MENU_DEBUG"
+      },
+      {
+        "text": "Set EXP",
+        "effect": [ { "math": [ "u_stk_exp_current = num_input('Set EXP:', 0)" ] } ],
+        "condition": { "math": [ "u_stk_debug == 1" ] },
+        "topic": "TALK_STK_MENU_DEBUG"
+      },
+      { "text": "Back", "topic": "TALK_STK_MENU_CONFIG" },
+      { "text": "Quit", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_STK_MENU_FAIL",
+    "dynamic_line": "You don't have a level point, or don't meet the requirements for this upgrade.",
+    "responses": [ { "text": "Back", "topic": "TALK_STK_MENU_MAIN" }, { "text": "Quit", "topic": "TALK_DONE" } ]
+  }
+]
