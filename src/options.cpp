@@ -2842,25 +2842,86 @@ void options_manager::add_options_world_default()
 
     add_empty_line();
 
-    add( "SPAWN_DENSITY", "world_default", translation(), translation(), 0.0, 50.0, 1.0, 0.1
-       );
+    add_option_group( "world_default", Group( "game_world_opts", to_translation( "Game World Options" ),
+                      to_translation( "Options regarding game world." ) ),
+    [&]( const std::string & page_id ) {
+        add( "CITY_SIZE", page_id, to_translation( "Size of cities" ),
+             to_translation( "A number determining how large cities are.  A higher number means larger cities.  0 disables cities, roads and any scenario requiring a city start." ),
+             0, 16, 8
+           );
 
-    add( "ITEM_SPAWNRATE", "world_default", translation(), translation(), 0.01, 10.0, 1.0, 0.01
-       );
+        add( "CITY_SPACING", page_id, to_translation( "City spacing" ),
+             to_translation( "A number determining how far apart cities are.  A higher number means cities are further apart.  Warning, small numbers lead to very slow mapgen." ),
+             0, 8, 4
+           );
 
-    add( "NPC_SPAWNTIME", "world_default", translation(), translation(), 0.0, 100.0, 4.0, 0.01
-       );
+        add( "SPAWN_DENSITY", page_id, to_translation( "Spawn rate scaling factor" ),
+             to_translation( "A scaling factor that determines density of monster spawns.  A higher number means more monsters." ),
+             0.0, 50.0, 1.0, 0.1
+           );
 
-    add( "MONSTER_SPEED", "world_default", translation(), translation(), 1, 1000, 100,
-         "%i%%"
-       );
+        add( "ITEM_SPAWNRATE", page_id, to_translation( "Item spawn scaling factor" ),
+             to_translation( "A scaling factor that determines density of item spawns.  A higher number means more items." ),
+             0.01, 10.0, 1.0, 0.01
+           );
 
-    add( "MONSTER_RESILIENCE", "world_default", translation(), translation(), 1, 1000, 100, "%i%%"
-       );
+        add( "NPC_SPAWNTIME", page_id, to_translation( "Random NPC spawn time" ),
+             to_translation( "Baseline average number of days between random NPC spawns.  Average duration goes up with the number of NPCs already spawned.  A higher number means fewer NPCs.  Set to 0 days to disable random NPCs." ),
+             0.0, 100.0, 4.0, 0.01
+           );
 
-    add( "EVOLUTION_INVERSE_MULTIPLIER", "world_default", translation(), translation(),
-         0.0, 100, 1.0, 0.01
-       );
+        add( "MONSTER_UPGRADE_FACTOR", page_id,
+             to_translation( "Monster evolution scaling factor" ),
+             to_translation( "A scaling factor that determines the time between monster upgrades.  A higher number means slower evolution.  Set to 0.00 to turn off monster upgrades." ),
+             0.0, 100, 4.0, 0.01
+           );
+    } );
+    add_empty_line();
+
+    add_option_group( "world_default", Group( "monster_props_opts",
+                      to_translation( "Monster Properties Options" ),
+                      to_translation( "Options regarding monster properties." ) ),
+    [&]( const std::string & page_id ) {
+        add( "MONSTER_SPEED", page_id, to_translation( "Monster speed" ),
+             to_translation( "Determines the movement rate of monsters.  A higher value increases monster speed and a lower reduces it.  Requires world reset." ),
+             1, 1000, 100, COPT_NO_HIDE, "%i%%"
+           );
+
+        add( "MONSTER_RESILIENCE", page_id, to_translation( "Monster resilience" ),
+             to_translation( "Determines how much damage monsters can take.  A higher value makes monsters more resilient and a lower makes them more flimsy.  Requires world reset." ),
+             1, 1000, 100, COPT_NO_HIDE, "%i%%"
+           );
+    } );
+
+    add_empty_line();
+
+    add_option_group( "world_default", Group( "spawn_time_opts", to_translation( "Spawn Time Options" ),
+                      to_translation( "Options regarding spawn time." ) ),
+    [&]( const std::string & page_id ) {
+
+        add( "SEASON_LENGTH", page_id, to_translation( "Season length" ),
+             to_translation( "Season length, in days.  Warning: Very little other than the duration of seasons scales with this value, so adjusting it may cause nonsensical results." ),
+             14, 127, 91
+           );
+
+        add( "CONSTRUCTION_SCALING", page_id, to_translation( "Construction scaling" ),
+             to_translation( "Sets the time of construction in percents.  '50' is two times faster than default, '200' is two times longer.  '0' automatically scales construction time to match the world's season length." ),
+             0, 1000, 100
+           );
+
+        add( "ETERNAL_SEASON", page_id, to_translation( "Eternal season" ),
+             to_translation( "If true, keep the initial season for ever." ),
+             false
+           );
+
+        add( "ETERNAL_TIME_OF_DAY", page_id, to_translation( "Day/night cycle" ),
+        to_translation( "Day/night cycle settings.  'Normal' sets a normal cycle.  'Eternal Day' sets eternal day.  'Eternal Night' sets eternal night." ), {
+            { "normal", to_translation( "Normal" ) },
+            { "day", to_translation( "Eternal Day" ) },
+            { "night", to_translation( "Eternal Night" ) },
+        }, "normal"
+           );
+    } );
 
     add( "SEASON_LENGTH", "world_default", translation(), translation(), 14, 127, 91 );
 
