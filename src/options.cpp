@@ -2842,42 +2842,33 @@ void options_manager::add_options_world_default()
 
     add_empty_line();
 
-    // These optiosn are purposefully and permanently hidden. It can only be modified through the sliders when creating a new world.
-    // As such there is no name or description to show, those are blanked.
-    add( "SPAWN_DENSITY", "world_default", translation(), translation(), 0.0, 50.0, 1.0, 0.1,
-         COPT_ALWAYS_HIDE
+    add( "SPAWN_DENSITY", "world_default", translation(), translation(), 0.0, 50.0, 1.0, 0.1
        );
 
-    add( "ITEM_SPAWNRATE", "world_default", translation(), translation(), 0.01, 10.0, 1.0, 0.01,
-         COPT_ALWAYS_HIDE
+    add( "ITEM_SPAWNRATE", "world_default", translation(), translation(), 0.01, 10.0, 1.0, 0.01
        );
 
-    add( "NPC_SPAWNTIME", "world_default", translation(), translation(), 0.0, 100.0, 4.0, 0.01,
-         COPT_ALWAYS_HIDE
+    add( "NPC_SPAWNTIME", "world_default", translation(), translation(), 0.0, 100.0, 4.0, 0.01
        );
 
-    add( "MONSTER_SPEED", "world_default", translation(), translation(), 1, 1000, 100, COPT_ALWAYS_HIDE,
+    add( "MONSTER_SPEED", "world_default", translation(), translation(), 1, 1000, 100,
          "%i%%"
        );
 
-    add( "MONSTER_RESILIENCE", "world_default", translation(), translation(), 1, 1000, 100,
-         COPT_ALWAYS_HIDE, "%i%%"
+    add( "MONSTER_RESILIENCE", "world_default", translation(), translation(), 1, 1000, 100, "%i%%"
        );
 
     add( "EVOLUTION_INVERSE_MULTIPLIER", "world_default", translation(), translation(),
-         0.0, 100, 1.0, 0.01, COPT_ALWAYS_HIDE
+         0.0, 100, 1.0, 0.01
        );
 
-    add( "SEASON_LENGTH", "world_default", translation(), translation(), 14, 127, 91,
-         COPT_ALWAYS_HIDE );
+    add( "SEASON_LENGTH", "world_default", translation(), translation(), 14, 127, 91 );
 
-    add( "CONSTRUCTION_SCALING", "world_default", translation(), translation(), 0, 1000, 100,
-         COPT_ALWAYS_HIDE );
+    add( "CONSTRUCTION_SCALING", "world_default", translation(), translation(), 0, 1000, 100 );
 
-    add( "ETERNAL_SEASON", "world_default", translation(), translation(), false, COPT_ALWAYS_HIDE );
+    add( "ETERNAL_SEASON", "world_default", translation(), translation(), false );
 
-    add( "ETERNAL_TIME_OF_DAY", "world_default", translation(), translation(), "normal", 8,
-         COPT_ALWAYS_HIDE );
+    add( "ETERNAL_TIME_OF_DAY", "world_default", translation(), translation(), "normal", 8 );
 
     add_option_group( "world_default", Group( "misc_worlddef_opts", to_translation( "Misc options" ),
                       to_translation( "Miscellaneous options." ) ),
