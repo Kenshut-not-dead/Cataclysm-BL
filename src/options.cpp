@@ -2975,7 +2975,7 @@ void options_manager::add_options_world_default()
            );
         add( "PLAYER_HEALING_RATE", page_id, to_translation( "Healing rate" ),
              to_translation( "Set base player healing rate per turn.  Default: 0.0001" ),
-             0.0f, 10000f, 0.0001f
+             0.0f, 1000.0f, 0.0001f
            );
         
         
