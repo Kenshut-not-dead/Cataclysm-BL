@@ -2923,13 +2923,64 @@ void options_manager::add_options_world_default()
            );
     } );
 
-    add( "SEASON_LENGTH", "world_default", translation(), translation(), 14, 127, 91 );
+    add_empty_line();
 
-    add( "CONSTRUCTION_SCALING", "world_default", translation(), translation(), 0, 1000, 100 );
+    add_option_group( "world_default", Group( "Player_world_sett", to_translation( "Player options" ),
+                      to_translation( "Player options." ) ),
+    [&]( const std::string & page_id ) {
 
-    add( "ETERNAL_SEASON", "world_default", translation(), translation(), false );
+        add( "PLAYER_MAX_STAMINA_BASE", page_id, to_translation( "Max stamina base" ),
+             to_translation( "Sets the base max stamina value of the player, before cardio modifiers." ),
+             3500
+           );
+        add( "PLAYER_MAX_STR_VALUE", page_id, to_translation( "Max str" ),
+             to_translation( "Sets a cap on maximum effective strength for characters." ),
+             100
+           );
+        add( "PLAYER_MAX_DEX_VALUE", page_id, to_translation( "Max dex" ),
+             to_translation( "Sets a cap on maximum effective dexterity for characters." ),
+             100
+           );
+        add( "PLAYER_MAX_PER_VALUE", page_id, to_translation( "Max per" ),
+             to_translation( "Sets a cap on maximum effective perception for characters." ),
+             100
+           );
+        add( "PLAYER_MAX_INT_VALUE", page_id, to_translation( "Max int" ),
+             to_translation( "Sets a cap on maximum effective intelligence for characters." ),
+             100
+           );
+        add( "PLAYER_CARDIOFIT_STAMINA_SCALING", page_id, to_translation( "Cardio stamina scaling" ),
+             to_translation( "Sets the effect of cardio on maximum stamina." ),
+             5
+           );
+        add( "PLAYER_BASE_STAMINA_REGEN_RATE", page_id, to_translation( "Stamina regen rate base" ),
+             to_translation( "Sets base stamina regeneration per turn of the player, before cardio modifiers.  May be used as an offset in stamina draining effects." ),
+             20
+           );
+        add( "PLAYER_BASE_STAMINA_BURN_RATE", page_id, to_translation( "Stamina regen burn base" ),
+             to_translation( "Sets base stamina burn per 100 moves of the walking player." ),
+             20
+           );
+        add( "PLAYER_HUNGER_RATE", page_id, to_translation( "Hunger rate" ),
+             to_translation( "Set base hunger rate per 5 minutes.  Default: 1.0" ),
+             1.0
+           );
+        add( "PLAYER_THIRST_RATE", page_id, to_translation( "Thirst rate" ),
+             to_translation( "Set base thirst rate per 5 minutes.  Default: 1.0" ),
+             1.0
+           );
+        add( "PLAYER_SLEEPINESS_RATE", page_id, to_translation( "Sleepiness rate" ),
+             to_translation( "Set base sleepiness rate per 5 minutes.  Default: 1.0" ),
+             1.0
+           );
+        add( "PLAYER_HEALING_RATE", page_id, to_translation( "Healing rate" ),
+             to_translation( "Set base player healing rate per turn.  Default: 0.0001" ),
+             0.0001
+           );
+        
+        
+    } );
 
-    add( "ETERNAL_TIME_OF_DAY", "world_default", translation(), translation(), "normal", 8 );
 
     add_option_group( "world_default", Group( "misc_worlddef_opts", to_translation( "Misc options" ),
                       to_translation( "Miscellaneous options." ) ),
@@ -2938,6 +2989,19 @@ void options_manager::add_options_world_default()
              to_translation( "If true, spawn zombies at shelters.  Makes the starting game a lot harder." ),
              false
            );
+        add( "SHOW_MUTATION_SELECTOR", "world_default", to_translation( "Mutation Selector" ),
+         to_translation( "If true, when mutating, allows you to pick from a list of possible mutations instead of getting one at random." ),
+         false
+       );
+        add( "RAD_MUTATION", "world_default", to_translation( "Rad mutation" ),
+         to_translation( "If true, radiation causes the player to mutate." ),
+         false
+       );
+        add( "RAD_MUTATION", "world_default", to_translation( "Rad mutation" ),
+         to_translation( "If true, radiation causes the player to mutate." ),
+         false
+       );
+        
     } );
 
     add_empty_line();
