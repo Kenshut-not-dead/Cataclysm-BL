@@ -2931,56 +2931,57 @@ void options_manager::add_options_world_default()
 
         add( "PLAYER_MAX_STAMINA_BASE", page_id, to_translation( "Max stamina base" ),
              to_translation( "Sets the base max stamina value of the player, before cardio modifiers." ),
-             3500
+             1, 100000, 3500
            );
         add( "PLAYER_MAX_STR_VALUE", page_id, to_translation( "Max str" ),
              to_translation( "Sets a cap on maximum effective strength for characters." ),
-             100
+             0, 100000, 100
            );
         add( "PLAYER_MAX_DEX_VALUE", page_id, to_translation( "Max dex" ),
              to_translation( "Sets a cap on maximum effective dexterity for characters." ),
-             100
+             0, 100000, 100
            );
         add( "PLAYER_MAX_PER_VALUE", page_id, to_translation( "Max per" ),
              to_translation( "Sets a cap on maximum effective perception for characters." ),
-             100
+             0, 100000, 100
            );
         add( "PLAYER_MAX_INT_VALUE", page_id, to_translation( "Max int" ),
              to_translation( "Sets a cap on maximum effective intelligence for characters." ),
-             100
+             0, 100000, 100
            );
         add( "PLAYER_CARDIOFIT_STAMINA_SCALING", page_id, to_translation( "Cardio stamina scaling" ),
              to_translation( "Sets the effect of cardio on maximum stamina." ),
-             5
+             1, 1000, 5
            );
         add( "PLAYER_BASE_STAMINA_REGEN_RATE", page_id, to_translation( "Stamina regen rate base" ),
              to_translation( "Sets base stamina regeneration per turn of the player, before cardio modifiers.  May be used as an offset in stamina draining effects." ),
-             20
+             0, 10000, 20
            );
         add( "PLAYER_BASE_STAMINA_BURN_RATE", page_id, to_translation( "Stamina regen burn base" ),
              to_translation( "Sets base stamina burn per 100 moves of the walking player." ),
-             20
+             0, 10000, 20
            );
         add( "PLAYER_HUNGER_RATE", page_id, to_translation( "Hunger rate" ),
              to_translation( "Set base hunger rate per 5 minutes.  Default: 1.0" ),
-             1.0
+             0.0f, 100.0f, 1.0f
            );
         add( "PLAYER_THIRST_RATE", page_id, to_translation( "Thirst rate" ),
              to_translation( "Set base thirst rate per 5 minutes.  Default: 1.0" ),
-             1.0
+             0.0f, 100.0f, 1.0f
            );
         add( "PLAYER_SLEEPINESS_RATE", page_id, to_translation( "Sleepiness rate" ),
              to_translation( "Set base sleepiness rate per 5 minutes.  Default: 1.0" ),
-             1.0
+             0.0f, 100.0f, 1.0f
            );
         add( "PLAYER_HEALING_RATE", page_id, to_translation( "Healing rate" ),
              to_translation( "Set base player healing rate per turn.  Default: 0.0001" ),
-             0.0001
+             0.0f, 10000f, 0.0001f
            );
         
         
     } );
 
+    add_empty_line();
 
     add_option_group( "world_default", Group( "misc_worlddef_opts", to_translation( "Misc options" ),
                       to_translation( "Miscellaneous options." ) ),
