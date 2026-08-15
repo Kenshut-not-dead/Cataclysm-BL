@@ -2973,10 +2973,6 @@ void options_manager::add_options_world_default()
              to_translation( "Set base sleepiness rate per 5 minutes.  Default: 1.0" ),
              0.0, 100.0, 1.0, 0.01
            );
-        add( "PLAYER_HEALING_RATE", page_id, to_translation( "Healing rate" ),
-             to_translation( "Set base player healing rate per turn.  Default: 0.0001" ),
-             0.0, 1000.0, 0.0001, 0.0001
-           );
         
         
     } );
