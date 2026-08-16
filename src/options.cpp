@@ -2955,7 +2955,7 @@ void options_manager::add_options_world_default()
            );
         add( "PLAYER_BASE_STAMINA_REGEN_RATE", page_id, to_translation( "Stamina regen rate base" ),
              to_translation( "Sets base stamina regeneration per turn of the player, before cardio modifiers.  May be used as an offset in stamina draining effects." ),
-             0, 10000, 20
+             0.0, 10000.0, 20.0, 0.1
            );
         add( "PLAYER_BASE_STAMINA_BURN_RATE", page_id, to_translation( "Stamina regen burn base" ),
              to_translation( "Sets base stamina burn per 100 moves of the walking player." ),
