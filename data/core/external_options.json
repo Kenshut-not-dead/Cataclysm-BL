@@ -17,7 +17,7 @@
     "type": "EXTERNAL_OPTION",
     "name": "PLAYER_MAX_STAMINA_BASE",
     "//": "Sets the base max stamina value of the player, before cardio modifiers.",
-    "stype": "int",
+    "stype": "float",
     "value": 3500
   },
   {

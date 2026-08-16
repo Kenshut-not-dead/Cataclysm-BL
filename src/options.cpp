@@ -2931,7 +2931,7 @@ void options_manager::add_options_world_default()
 
         add( "PLAYER_MAX_STAMINA_BASE", page_id, to_translation( "Max stamina base" ),
              to_translation( "Sets the base max stamina value of the player, before cardio modifiers." ),
-             1, 100000, 3500
+             1.0, 100000.0, 3500.0, 0.1
            );
         add( "PLAYER_MAX_STR_VALUE", page_id, to_translation( "Max str" ),
              to_translation( "Sets a cap on maximum effective strength for characters." ),

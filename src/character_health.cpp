@@ -2199,7 +2199,7 @@ int Character::get_stamina_max() const
 
     // Cardiofit stamina mod defaults to 5, and get_cardiofit() should return a value in the vicinity
     // of 1000-3000, so this should add somewhere between 3000 to 15000 stamina.
-    int max_stamina = get_option<int>( player_max_stamina ) +
+    int max_stamina = get_option<float>( player_max_stamina ) +
                       get_option<int>( player_cardiofit_stamina_scale ) * get_cardiofit();
     max_stamina = enchantment_cache->modify_value( enchant_vals::mod::MAX_STAMINA, max_stamina );
 

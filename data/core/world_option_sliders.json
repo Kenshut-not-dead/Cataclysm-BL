@@ -125,8 +125,8 @@
         "name": "You like potato.",
         "description": "Your body feels like a potato. Max and regen stam decreased greatly, also speed burn stam increase greatly",
         "options": [ 
-          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "int", "val": 1000 },
-          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "int", "val": 5 },
+          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "float", "val": 1000 },
+          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "float", "val": 5 },
           { "option": "PLAYER_BASE_STAMINA_BURN_RATE", "type": "int", "val": 40 }
         ]
       },
@@ -135,8 +135,8 @@
         "name": "You so weak...",
         "description": "Your body so weak. Max and regen stam decreased, also speed burn stam increase",
         "options": [ 
-          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "int", "val": 2000 },
-          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "int", "val": 10 },
+          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "float", "val": 2000 },
+          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "float", "val": 10 },
           { "option": "PLAYER_BASE_STAMINA_BURN_RATE", "type": "int", "val": 35 }
         ]
       },
@@ -145,8 +145,8 @@
         "name": "Normal person",
         "description": "It's okay, you're normal.",
         "options": [ 
-          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "int", "val": 3500 },
-          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "int", "val": 20 },
+          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "float", "val": 3500 },
+          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "float", "val": 20 },
           { "option": "PLAYER_BASE_STAMINA_BURN_RATE", "type": "int", "val": 20 }
         ]
       },
@@ -155,8 +155,8 @@
         "name": "Strong person",
         "description": "Your body so strong, apparently XE037 did its job. Max and regen stam increase, also speed burn stam decreased",
         "options": [ 
-          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "int", "val": 4000 },
-          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "int", "val": 25 },
+          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "float", "val": 4000 },
+          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "float", "val": 25 },
           { "option": "PLAYER_BASE_STAMINA_BURN_RATE", "type": "int", "val": 15 }
         ]
       },
@@ -165,8 +165,8 @@
         "name": "demigod",
         "description": "Your body like a demigod! Did you make a deal with №@$#?. Max and regen stam increase greatly, also speed burn stam decreased greatly",
         "options": [ 
-          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "int", "val": 5000 },
-          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "int", "val": 30 },
+          { "option": "PLAYER_MAX_STAMINA_BASE", "type": "float", "val": 5000 },
+          { "option": "PLAYER_BASE_STAMINA_REGEN_RATE", "type": "float", "val": 30 },
           { "option": "PLAYER_BASE_STAMINA_BURN_RATE", "type": "int", "val": 10 }
         ]
       }
